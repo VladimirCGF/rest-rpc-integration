@@ -1,0 +1,18 @@
+syntax = "proto3";
+package payments;
+
+option java_package = "br.com.ecommerce.payments";
+option java_multiple_files = true;
+
+service PaymentService {
+  rpc ProcessPayment (PaymentRequest) returns (PaymentResponse);
+}
+
+message PaymentRequest {
+  double amount = 1;
+}
+
+message PaymentResponse {
+  bool approved = 1;
+  string message = 2;
+}
